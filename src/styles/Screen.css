@@ -1,0 +1,13 @@
+.screen {
+    width: 90%;
+    margin: 4px auto;
+    padding: 0px 12px;
+    background-color: #8b9ba3;
+    color: whitesmoke;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: right;
+    padding: auto 0px;
+    border-radius: 8px;
+    border: 2px inset solid black;
+}
