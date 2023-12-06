@@ -30,7 +30,7 @@ function Calculator() {
         <div className='calculator'>
             <Screen screenText={screenText}/>
             <div className='grid'>
-                <button id='clear' className='btn btn-wide btn-AC' onClick={clear}>AC</button>
+                <button id='clear' className='btn btn-wide btn-AC grow' onClick={clear}>AC</button>
                 <button id='divide' className='btn btn-bold'>/</button>
                 <button id='multiply' className='btn btn-bold'>X</button>
                 <button id='seven' className='btn' onClick={() => pushDigit(7)}>7</button>
