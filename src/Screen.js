@@ -1,10 +1,10 @@
 import './styles/Screen.css';
 
-function Screen() {
+function Screen( {screenText}) {
 
     return (
         <div className='screen'>
-            <p id='display'>Display here</p>
+            <h4 id='display'>{screenText}</h4>
         </div>
     );
 }
