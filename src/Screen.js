@@ -4,7 +4,7 @@ function Screen( {screenText}) {
 
     return (
         <div className='screen'>
-            <h4 id='display'>{screenText}</h4>
+            <h4 id='display'>{screenText || '0' }</h4>
         </div>
     );
 }
