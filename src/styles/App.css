@@ -17,5 +17,6 @@ a {
 
 .grow:hover, .btn:hover {
   transform: scale(1.05);
-  color: 		#edcc6f;
+  color:  var(--neutral-gray);
+  z-index: 1;
 }

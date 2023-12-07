@@ -2,12 +2,12 @@
     width: 90%;
     margin: 4px auto;
     padding: 0px 12px;
-    background-color: #8b9ba3;
-    color: whitesmoke;
-    font-size: 16px;
+    background-color: var(--neutral-gray);
+    color: white;
+    font-size: 20px;
     line-height: 54px;
     text-align: right;
     padding: auto 0px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     border: 2px inset solid black;
 }

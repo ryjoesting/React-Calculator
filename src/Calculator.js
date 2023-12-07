@@ -6,31 +6,49 @@ function Calculator() {
 
     const [total, setTotal] = useState(0);
     const [screenText, setScreenText] = useState('')
-    const [number, setNumber] = useState('');
-
-    const clear = () => {
-        setTotal(0);
-        setNumber('');
-        setScreenText('0');
-    }
+    const [numberStr, setNumberStr] = useState('');
+    const [number, setNumber] = useState(0);
 
     useEffect( () => {
-        if(number != 0) setScreenText(number);
-    }, [number]);
+        if(numberStr !== 0) setScreenText(numberStr);
+    }, [numberStr]);
 
     useEffect( () => {
         setScreenText('0');
     }, []);
+    
+    const clear = () => {
+        setTotal(0);
+        setNumberStr('');
+        setScreenText('0');
+    };
 
     const pushDigit = (digit) => {
-        setNumber([...number, digit].join(''));
+        setNumberStr(numberStr.concat(digit));
+    };
+
+    const parseNumberStr = () => {
+        if (isNaN(+numberStr)) {
+            console.log('numberStr NaN error');
+            return;
+        }
+        setNumber(+numberStr);
+        console.log('Number str parsed: ' + number);
     }
+
+    const add = () => {
+        if (numberStr === '') {
+            // error
+        }
+        parseNumberStr();
+
+    };
 
     return (
         <div className='calculator'>
             <Screen screenText={screenText}/>
             <div className='grid'>
-                <button id='clear' className='btn btn-wide btn-AC grow' onClick={clear}>AC</button>
+                <button id='clear' className='btn btn-wide' onClick={clear}>AC</button>
                 <button id='divide' className='btn btn-bold'>/</button>
                 <button id='multiply' className='btn btn-bold'>X</button>
                 <button id='seven' className='btn' onClick={() => pushDigit(7)}>7</button>

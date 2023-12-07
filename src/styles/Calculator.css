@@ -2,15 +2,15 @@
     margin: 50px auto;
     min-width: 285px;
     max-width: 35%;
-    background-color: 	#575454;
-    padding: 2px;
+    background-color: 	var(--dark);
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
 }
 
 .grid {
     display: grid;
-    gap: 0.25rem;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1ff);
+    grid-template-rows: repeat(5, 1fr);
     grid-auto-rows: 80px;
 }
 
@@ -22,9 +22,10 @@
     width: 100%;
     height: 100%;
     transition: all 500ms;
-    background-color: #88cafc;
+    background-color: var(--dark);
     font-size: 20px;
     font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    border: none;
 }
 
 .btn-bold {
@@ -32,8 +33,8 @@
     background-color: #404066;
 }
 
-.btn-AC {
-    background-color: rgb(255, 100, 100);
+#clear, #equals {
+    background-color: var(--primay);
 }
 
 .btn-wide {
