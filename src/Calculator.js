@@ -12,7 +12,9 @@ function Calculator() {
     const pushToStack = (val) => {
         if (
             (ops.includes(val) && stack === '') ||
-            (ops.includes(val) && ops.includes(stack.slice(-1)))
+            (val === '0' && stack === '') ||
+            (val === '0' && (ops.includes(stack.slice(-1)))) ||
+            (ops.includes(val) && (ops.includes(stack.slice(-1)) ? (stack.slice(-1) === '-' ? false : true) : true)) // FIX ME
         ) return;
         setStack(stack + val);
         if (!ops.includes(val)) {
