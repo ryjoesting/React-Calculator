@@ -14,7 +14,7 @@ function Calculator() {
             (ops.includes(val) && stack === '') ||
             (val === '0' && stack === '') ||
             (val === '0' && (ops.includes(stack.slice(-1)))) ||
-            (ops.includes(val) && (ops.includes(stack.slice(-1)) ? (stack.slice(-1) === '-' ? false : true) : true)) // FIX ME
+            (val === stack.slice(-1))
         ) return;
         setStack(stack + val);
         if (!ops.includes(val)) {
