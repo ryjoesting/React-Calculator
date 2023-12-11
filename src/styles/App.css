@@ -6,3 +6,17 @@
   margin: 50px;
   text-align: center;
 }
+  
+a {
+  color: black;
+}
+
+.grow, .btn {
+  transition: all .35s ease-in-out;
+}
+
+.grow:hover, .btn:hover {
+  transform: scale(1.05);
+  color:  var(--neutral-gray);
+  z-index: 1;
+}

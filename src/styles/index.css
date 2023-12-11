@@ -1,3 +1,12 @@
+:root {
+  --primay: #d81e5b;
+  --secondary: #8c38ff;
+  --dark: #131a26;
+  --light: #eee;
+  --neutral-gray: #8b9ba3;
+  --border-radius: 8px;
+}
+
 body {
   margin: 0;
   font-family: 'Courier New', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
