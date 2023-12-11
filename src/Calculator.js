@@ -1,42 +1,60 @@
 import './styles/Calculator.css';
 import Screen from './Screen'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function Calculator() {
 
     const [stack, setStack] = useState('');
     const [result, setResult] = useState('');
+    const [currentOp, setCurrentOp] = useState(null);
 
     const ops = ['+', '-', '*', '/', '.'];
 
     const pushToStack = (val) => {
-        if (
-            (ops.includes(val) && stack === '') ||
-            (val === '0' && stack === '') ||
-            (val === '0' && (ops.includes(stack.slice(-1)))) ||
-            (val === stack.slice(-1))
-        ) return;
-        setStack(stack + val);
         if (!ops.includes(val)) {
-            setResult(eval(stack + val).toString());
+            setStack(stack.concat(val)); return;
         }
+        if (val === '.') {
+            if (stack.includes('.')) return;
+            else { setStack(stack.concat('.')); return; }
+        }
+        setCurrentOp(val);
+        setResult(stack);
+        setStack('');
     }
 
-    const clear = () => {
+    const clearAll = () => {
         setResult('');
         setStack('');
     }
 
     const equals = () => {
-        console.log(result);
-        setStack(result);
+        let output = 0, num1 = +result, num2 = +stack;
+        switch (currentOp) {
+            case '+':
+                output = num1 + num2;
+                break;
+            case '-':
+                output = num1 - num2;
+                break;
+            case '*':
+                output = num1 * num2;
+                break;
+            case '/':
+                output = num1 / num2;
+                break;
+            default: break;
+        }
+        setResult(output);
+        setCurrentOp(null);
+        setStack('');
     }
 
     return (
         <div className='calculator'>
-            <Screen screenText={stack}/>
+            <Screen screenText={stack || currentOp || result || '00'}/>
             <div className='grid'>
-                <button id='clear'    onClick={clear}  className='btn btn-wide'>AC</button>
+                <button id='clear'    onClick={clearAll}  className='btn btn-wide'>AC</button>
                 <button id='divide'   onClick={() => pushToStack('/')}  className='btn btn-bold'>/</button>
                 <button id='multiply' onClick={() => pushToStack('*')}  className='btn btn-bold'>X</button>
                 <button id='seven'    onClick={() => pushToStack('7')}  className='btn'>7</button>
